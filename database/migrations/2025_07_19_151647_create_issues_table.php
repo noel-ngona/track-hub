@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('issues', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_id')->constrained('projects');
             $table->string('title');
             $table->text('description');
             $table->enum('priority', ['low', 'medium', 'high', 'critical']);
